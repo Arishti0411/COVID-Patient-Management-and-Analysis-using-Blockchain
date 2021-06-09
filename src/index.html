@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
+  <title>ISM Project | Review 3</title>
+  <!-- Bootstrap -->
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+   <style>
+input[type=text], select {
+  
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type=submit] {
+ 
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+</style>
+
+  <style>
+      body
+      {
+        background-color: #86af49;
+        color: #ffffff;
+        padding: 20px;
+        font: 100%; 
+        font-family: Verdana,sans-serif;         
+      }
+      /CSS for All Input Buttons/
+      body input[type=button]
+      {
+        font-family: 'Segoe UI', 'Open Sans', sans-serif, Arial;    
+        background-color: #006969; /* Green */
+        border: none;
+        color: #ffffff;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+      }
+      body input[type=button]:hover
+      {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 10px 10px 0 rgba(0,0,0,0.19);      
+      }     
+    </style>
+  <style>
+ 
+  <style>
+    main {
+      margin-top: 60px;
+    }
+    #content {
+    }
+    form {
+      width: 350px;
+      margin-bottom: 10px;
+    }
+    ul {
+      margin-bottom: 0px;
+    }
+    #completedTaskList .content {
+      color: #ffffff;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body ><br><br>
+  <H1 align = center>COVID-19 Portal</H1>
+
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="" target="_blank">ISM Project | Review 3</a>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+        <small><a class="nav-link" href="#"><span id="account"></span></a></small>
+      </li>
+    </ul>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <main role="main" class="col-lg-12 d-flex justify-content-center">
+        <div id="loader" class="text-center">
+          <p class="text-center">Loading... Please wait!</p>
+        </div><br><br>
+        <div id="content">
+          <form>
+            <input id="newPatientList" type="button" class="form-control" value="Add Patient" onclick="AddPatient()" style="background-color: #E6E6FA; font-size: 22px; ">
+            <input type="submit" hidden=""><br><br>
+          </form>
+          <a href="demo (1).html" target="iframe_a"><input type="button" value="Calculate Hash"></a>
+        </form> 
+        
+      </form> 
+      <!-- <iframe src="demo1.html" name="iframe_a"   title="Iframe Example"></iframe> -->
+    </div>
+  </div>
+  <div id="add" style="display: none;"><center>
+    <form onsubmit="App.addPatientBlock();return false;">
+      <div id="add">
+        <input type="text" placeholder="Adhar number" name="an" class="adhar" required><br><br>    
+
+        <input type="text" placeholder="Enter Patient name" name="pn" class="pn" required><br><br>
+        <label for="hash">Hash Value</label>
+
+        <textarea id="hash" name="hash"  class="hv" rows="4" cols="50"></textarea> <br><br>
+
+        <label for="ca">Fever level:</label>
+        <select name="ca" id="cars" class="fl">
+          <option value="99">99</option>
+          <option value="100">100</option>
+          <option value="101">101</option>
+          <option value="102">102</option>
+          <option value="103">103</option>
+        </select><br><br>
+
+        <label for="vol">Oxygen level(between 0 and 100):</label>
+        <input type="range" id="vol" name="vol" class="ol" min="0" max="100">
+        <p>Oxygen level Value: <span id="demo"></span></p><br>
+        <script>
+          var slider = document.getElementById("vol");
+          var output = document.getElementById("demo");
+          output.innerHTML = slider.value;
+
+          slider.oninput = function() {
+            output.innerHTML = this.value;
+          }
+        </script>
+        <input type="text" placeholder="UPRN" name="UP"  class="uprn" required><br><br>
+        <input type="text" placeholder="Enter Doctor name" name="dn" class="dn" required><br><br>
+        <input type="text" placeholder="Patient prescription" name="dg" class="pp" required><br><br>
+        <button type="submit" class="btn" style="background-color: #66a3ff; font-size: 18px; ">SUBMIT</button><br></div></center>
+      </form>
+    </div>
+    
+    </div>
+    <div>
+      <ul id="patientList" class="list-unstyled">
+        <div class="blockTemplate" class="checkbox" style="display: none; font-size: 19px;color: white; ">
+          <label>
+            <input type="radio" />
+            <label><b>Patient Aadhar Number: </b></label> <span class="patientAadharNo"></span>,
+            <label><b>Patient Name: </b></label> <span class="patientName"></span>,
+            <label><b>Hash Value: </b></label> <span class="hashValue"></span>,
+            <label><b>Fever Level: </b></label> <span class="feverLevel"></span>,
+            <label><b>Oxygen Level: </b></label> <span class="oxygenLevel"></span>,
+            <label><b>Doctor UPRN: </b></label> <span class="docUPRN"></span>,
+            <label><b>Doctor Name: </b></label> <span class="docName"></span>
+            <label><b>Patient Prescription: </b></label> <span class="patientPrescription"></span>
+          </label>
+        </div>
+      </ul>
+      <ul id="addedPatientList" class="list-unstyled">
+      </ul>
+    </div>
+    <br><br><center>
+    <form>
+      <input id="getPatient" type="button" class="form-control" value="Get Patient Details" onclick="GetPatient()" style="background-color: #E6E6FA;font-size: 22px; ">
+      <input type="submit" hidden="" style="background-color:  #66a3ff;  "><br><br>
+    </form>
+    <div id="get" style="display: none;">
+      <form onsubmit="App.getPatientDetail();return false;">
+        <div id="get">
+          <input type="text" placeholder="Enter Patient Aadhar No." name="id" class="gA" required><br>
+          <button type="submit" class="btn">SUBMIT</button><br></div>
+        </form>
+      </div>
+
+      <table style="font-size: 18px;">
+
+        <tr><th><label><b>Patient Name: </b></label> <span id="pN"></span></th></tr>
+        <tr><th><label><b>Hash Value: </b></label> <span id="hV"></span></th></tr>
+        <tr><th><label><b>Fever Level: </b></label> <span id="fL"></span></th></tr>
+        <tr><th><label><b>Oxygen Level: </b></label> <span id="oL"></span></th></tr>
+        <tr><th><label><b>Doctor UPRN: </b></label> <span id="dU"></span></th></tr>
+        <tr><th><label><b>Doctor Name: </b></label> <span id="dN"></span></th></tr>
+        <tr><th><label><b>Patient Prescription: </b></label> <span id="pP"></span></th></tr>
+      </table></center><br><br><center>
+    <form onsubmit="App.calcSeverity();return false;">
+        <!--<a href="severity.html" target="iframe_a">--><label style="font-size: 22px; color: #002966;"> <b>TOTAL NUMBER OF PATIENTS HAVING</b></label>
+        <div class="calc">
+        <table style=" color: white; font-size: 20px;">
+
+        <tr><th><label><b>High Risk: </b></label> <span id="hr"></span></th></tr>
+        <tr><th><label><b>Medium Risk: </b></label> <span id="mr"></span></th></tr>
+        <tr><th><label><b>Low Risk: </b></label> <span id="lr"></span></th></tr>
+        
+      </table>
+        <button type="submit" class="btn">CALCULATE</button><br></div>
+      </div></form></center>
+  </main>
+</div>
+</div>
+<script type="text/javascript">
+  function AddPatient(){
+    var x = document.getElementById("add");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function calcSeverity(){
+    var x = document.getElementById("calc");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function addPatientBlock(){
+    App.addPatientBlock();
+  }
+
+  function GetPatient(){
+    var x = document.getElementById("get");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function getPatientDetail(){
+    App.getPatientDetail();
+  }
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
